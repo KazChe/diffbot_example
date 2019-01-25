@@ -1,0 +1,17 @@
+{
+  "name": "diffbot_poc",
+  "version": "1.0.0",
+  "description": "my poc with diffbot node lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "diffbot"
+  ],
+  "author": "kc",
+  "license": "ISC",
+  "dependencies": {
+    "diffbot": "^1.0.3"
+  }
+}
