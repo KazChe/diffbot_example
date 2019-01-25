@@ -5,7 +5,7 @@ var diffbot = new Diffbot('0603ef8b180d4541424e2f4e3471058a'); // your API key h
 // regular function
 diffbot.article({uri: 'http://techcrunch.com/2011/09/07/nintendo-gets-sued-over-the-wii/'}, function(err, response) {
   if(response.objects[0] !== undefined) {
-      console.log('WTF?', response.objects[0].title);
+      console.log(response.objects[0].title);
       console.log(response.objects[0].text);
       if (response.objects[0].media)
           console.log(JSON.stringify(response.objects[0].media));
