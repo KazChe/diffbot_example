@@ -1,4 +1,5 @@
-var Diffbot = require('diffbot').Diffbot
+// var Diffbot = require('diffbot').Diffbot
+var Diffbot = require('./mylib/diffbot').Diffbot
 
 var diffbot = new Diffbot('0603ef8b180d4541424e2f4e3471058a'); // your API key here
 
@@ -26,4 +27,9 @@ diffbot.frontpage({uri: 'http://prettyspace.tumblr.com/'}, function(err, respons
   // the json return isn't really json...
   // it looks like xml converted to json
   // need to incorporate an xml parser to this
+});
+
+// KC - TODO: add logic to extract useful info from response
+diffbot.discussion({uri: 'https://news.ycombinator.com/item?id=5608988'}, function(err, response) {
+    console.dir(response)
 });
