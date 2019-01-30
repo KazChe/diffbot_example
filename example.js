@@ -32,4 +32,13 @@ diffbot.frontpage({uri: 'http://prettyspace.tumblr.com/'}, function(err, respons
 // KC - TODO: add logic to extract useful info from response
 diffbot.discussion({uri: 'https://news.ycombinator.com/item?id=5608988'}, function(err, response) {
     console.dir(response)
+    if(response.objects[0] !== undefined) {
+        let responseObject = {}
+        responseObject = response.objects[0]
+        console.log('DISCUSSION | confidence:',responseObject.confidence)
+        console.log('DISCUSSION | page url:',responseObject.pageUrl)
+        console.log('DISCUSSION | title:',responseObject.title)
+        console.log('DISCUSSION | tags:',responseObject.tags)
+        console.log('DISCUSSION | author:',responseObject.author)
+    }
 });
