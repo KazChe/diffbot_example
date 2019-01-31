@@ -158,3 +158,37 @@ Diffbot.prototype.discussion = function(options, callback) {
         }
     });
 }
+
+
+Diffbot.prototype.image = function(options, callback) {
+    for (var i in options) {
+        this[i] = options[i];
+    }
+
+    var options = this;
+
+    // support 'url'
+    if (options.url) {
+        options.uri = options.url;
+        delete options.url;
+    }
+
+    if (!options.uri) {
+        throw new Error("the URI is required.");
+    }
+
+    var diffbot_url = "https://api.diffbot.com/v3/image?token=" + this.token + "&url=" + encodeURIComponent(options.uri) + "&format=json";
+
+    request({uri: diffbot_url}, function(error, response, body) {
+        if (error) {
+            return callback(error, undefined);
+        } else {
+            try {
+                var parsedJSON = JSON.parse(body);
+            } catch (e) {
+                return callback(e, undefined);
+            }
+            return callback(false, parsedJSON);
+        }
+    });
+}

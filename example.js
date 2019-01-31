@@ -39,7 +39,6 @@ diffbot.frontpage({uri: 'https://serverless.com//'}, function(err, response) {
   // need to incorporate an xml parser to this
 });
 
-// KC - TODO: add logic to extract useful info from response
 diffbot.discussion({uri: 'https://news.ycombinator.com/item?id=5608988'}, function(err, response) {
     console.dir(response)
     if(response.objects[0] !== undefined) {
@@ -50,5 +49,13 @@ diffbot.discussion({uri: 'https://news.ycombinator.com/item?id=5608988'}, functi
         console.log('DISCUSSION | title:',responseObject.title)
         console.log('DISCUSSION | tags:',responseObject.tags)
         console.log('DISCUSSION | author:',responseObject.author)
+    }
+});
+
+diffbot.image({uri: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fs3-eu-west-1.amazonaws.com%2Fwizardondemand%2Fserverless%2Fserverless-1-with-technology-names.png&imgrefurl=https%3A%2F%2Fserverless.com%2Fblog%2Funit-testing-nodejs-serverless-jest%2F&docid=X4tk3aw3qWU_BM&tbnid=kIqjmP4Va6WnoM%3A&vet=10ahUKEwiEoYTu6ZjgAhWjrFQKHSGKA4sQMwhEKAQwBA..i&w=1200&h=500&bih=594&biw=1280&q=serverless%20framework&ved=0ahUKEwiEoYTu6ZjgAhWjrFQKHSGKA4sQMwhEKAQwBA&iact=mrc&uact=8'}, function(err, response) {
+    console.log('API Called:',response.request.api, '|| URL:',response.request.pageUrl)
+    for(const index in response.objects) {
+        const value = response.objects[index]
+        console.log(index,value)
     }
 });
