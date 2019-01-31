@@ -21,9 +21,19 @@ diffbot.article({uri: 'https://www.vanityfair.com/news/2019/01/roger-stone-arres
 });
 
 // maybe try the frontpage api too
-diffbot.frontpage({uri: 'http://prettyspace.tumblr.com/'}, function(err, response) {
-  console.dir(response)
-  // the frontpage api is weird right now
+diffbot.frontpage({uri: 'https://serverless.com//'}, function(err, response) {
+    console.dir(response.request.api)
+    for(const prop in response.sections) {
+        const items = response.sections[prop].items
+        //console.log(items)
+        for(const prop in items) {
+            const item = items[prop]
+            console.log('title:',item.title, 'url:', item.url)
+        }
+    }
+
+
+    // the frontpage api is weird right now
   // the json return isn't really json...
   // it looks like xml converted to json
   // need to incorporate an xml parser to this
