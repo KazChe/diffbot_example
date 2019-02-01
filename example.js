@@ -59,3 +59,11 @@ diffbot.image({uri: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fs3-eu-we
         console.log(index,value)
     }
 });
+
+diffbot.product({uri: 'https://goo.gl/G5TpSP'}, function(err, response) {
+    console.log('API Called:',response.request.api, '|| URL:',response.request.pageUrl)
+    for(const index in response.objects) {
+        const value = response.objects[index]
+        console.log(index,value)
+    }
+});
