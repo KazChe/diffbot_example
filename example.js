@@ -67,3 +67,11 @@ diffbot.product({uri: 'https://goo.gl/G5TpSP'}, function(err, response) {
         console.log(index,value)
     }
 });
+
+diffbot.video({uri: 'https://www.youtube.com/watch?v=Zyc50YzEciQ'}, function(err, response) {
+    console.log('API Called:',response.request.api, '|| URL:',response.request.pageUrl)
+    for(const index in response.objects) {
+        const value = response.objects[index]
+        console.log(index,value)
+    }
+});
